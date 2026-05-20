@@ -1,15 +1,17 @@
 > This project is not receiving substantial updates, and I'll have limited time for it in the future. With the latest release the project became quite accurately what I want it to be: an easy and flexible editor and framework to explore use cases of flow-based visual scripting in Python. If you have questions or further ideas feel free to open issues or fork the project and try it yourself.
 
+> **2026 Update** This project has been worked and is used in a research project. Hence, it will receive updates during 2026 (at least).
+
 <p align="center">
   <img src="./docs/img/logo.png" alt="drawing" width="70%"/>
 </p>
 
 Ryven is an experimental node editor written in Python. It implements a Qt-based visual interface for flow-based visual scripting in Python. It provides a powerful system for developing nodes executing any Python code, and an editor for building graphs using those nodes. Ryven features a bunch of configuration options and a headless mode for running graphs without any GUI. Some relevant GitHub repos:
 
-* [ryvencore](https://github.com/leon-thomm/ryvencore): backend / core library
-* [ryven-blender](https://github.com/leon-thomm/ryven-blender), [ryven-unreal](https://github.com/leon-thomm/ryven-unreal): Ryven plugins for Blender and UE4 (_deprecated_)
-* [PythonOCC nodes for Ryven](https://github.com/Tanneguydv/Pythonocc-nodes-for-Ryven): WIP Ryven nodes for PythonOCC (3D CAD) (_deprecated_)
-* [ironflow](https://github.com/pyiron/ironflow): WIP node interface in jupyter for [pyiron](https://github.com/pyiron) based on ryvencore
+- [ryvencore](https://github.com/leon-thomm/ryvencore): backend / core library
+- [ryven-blender](https://github.com/leon-thomm/ryven-blender), [ryven-unreal](https://github.com/leon-thomm/ryven-unreal): Ryven plugins for Blender and UE4 (_deprecated_)
+- [PythonOCC nodes for Ryven](https://github.com/Tanneguydv/Pythonocc-nodes-for-Ryven): WIP Ryven nodes for PythonOCC (3D CAD) (_deprecated_)
+- [ironflow](https://github.com/pyiron/ironflow): WIP node interface in jupyter for [pyiron](https://github.com/pyiron) based on ryvencore
 
 The `ryvencore-qt` library adds Qt-based GUI classes for ryvencore (`./ryvencore-qt/`), and the Ryven editor assembles them into a fully-featured cross-platform application (`./ryven-editor/`).
 
@@ -45,12 +47,13 @@ When installed, ryven will create a directory `~/.ryven/` in your user home with
 The `ryven.cfg` file contains global configurations for Ryven.
 
 Ryven can be configured in four ways:
+
 1. from the command line, e.g. `ryven --nodes your_nodes_pkg_1 --no-animations`
 2. from a configuration file, e.g. in `~/.ryven/ryven.cfg`:
    > ```
    > nodes = your_nodes_pkg_1
    > no_animations = True
-   > ``` 
+   > ```
 3. through arguments when it's integrated in another Python application, e.g.
    > ```python
    > import ryven
@@ -58,7 +61,7 @@ Ryven can be configured in four ways:
    > ryven.run_ryven(nodes=pathlib.Path(['your_nodes_pkg_1']), no_animations=True)
    > ```
 4. using a GUI in the startup dialog
-   * you can also convert the manual configuration to cmd line args (or a config file) in the dialog
+   - you can also convert the manual configuration to cmd line args (or a config file) in the dialog
 
 Type `ryven --help` for a list of available options.
 
@@ -86,24 +89,25 @@ For more information, visit https://leon-thomm.github.io/ryvencore/
 </details>
 
 ## Editor Usage
+
 <details>
 <summary>quick start guide</summary>
 
-* open Ryven by running `ryven` from the command line
-* you should see the startup dialog
-* create a new project
-* import some example nodes
-  * `File -> Import Example Nodes` and select `<installation_dir>/example_nodes/std/nodes.py`
-* you should now see a list of nodes on the left
-* drag and drop them into the scene and connect them with your mouse
-* everything is being executed at runtime; try this:
-  * drag two `val` nodes into the scene
-  * wire them together with a `+` node
-  * display the result in a `result` node 
-  * now replace one of them with a slider node generating real numbers
-* by right-clicking, you can also get an interactive nodes list preview inside the scene
-* you can pan around also with the right mouse button (hold and drag)
-* and zoom via `ctrl + scroll`
+- open Ryven by running `ryven` from the command line
+- you should see the startup dialog
+- create a new project
+- import some example nodes
+  - `File -> Import Example Nodes` and select `<installation_dir>/example_nodes/std/nodes.py`
+- you should now see a list of nodes on the left
+- drag and drop them into the scene and connect them with your mouse
+- everything is being executed at runtime; try this:
+  - drag two `val` nodes into the scene
+  - wire them together with a `+` node
+  - display the result in a `result` node
+  - now replace one of them with a slider node generating real numbers
+- by right-clicking, you can also get an interactive nodes list preview inside the scene
+- you can pan around also with the right mouse button (hold and drag)
+- and zoom via `ctrl + scroll`
 
 </details>
 
@@ -168,7 +172,7 @@ class RandNode(Node):
     init_outputs = [NodeOutputType()]
 
     def update_event(self, inp=-1):
-        self.set_output_val(0, 
+        self.set_output_val(0,
             Data(random() * self.input(0).payload)
         )
 ```
@@ -193,6 +197,8 @@ export_nodes([
 ])
 ```
 
+Make sure to include these lines of code in `nodes.py`.
+
 That's it! You can import your nodes package in Ryven (`File -> Import Nodes`), place the nodes in the graph, and wire them up. Add a `val` node and connect it to the `Rand` node, to feed its input with data. If you type a number into the widget of the `val` node and hit enter, it will send the number to the `Rand` node, which will send a scaled random number to the `Print` node, which will print it to the standard output.
 
 Notice that the standard output is by default the in-editor console, which you can access at the very bottom of the editor window (drag the blue handle up to make it visible).
@@ -215,38 +221,38 @@ from . import nodes
 class RandSliderWidget(NodeInputWidget, QSlider):
     """a standard Qt slider widget, which updates the node
     input it is attached to, every time the slider value changes"""
-    
+
     def __init__(self, params):
         NodeInputWidget.__init__(self, params)
         QSlider.__init__(self)
-        
+
         self.setOrientation(Qt.Horizontal)
         self.setMinimumWidth(100)
         self.setMinimum(0)
         self.setMaximum(100)
         self.setValue(50)
         self.valueChanged.connect(self.value_changed)
-    
+
     def value_changed(self, val):
         # updates the node input this widget is attached to
         self.update_node_input(Data(val))
-    
+
     def get_state(self) -> dict:
         # return the state of the widget
         return {'value': self.value()}
-    
+
     def set_state(self, state: dict):
         # set the state of the widget
         self.setValue(state['value'])
-    
+
 
 @node_gui(nodes.RandNode)
 class RandNodeGui(NodeGUI):
     color = '#fcba03'
-    
+
     # register the input widget class
     input_widget_classes = { 'slider': RandSliderWidget }
-    
+
     # attach the slider widget to the first node input
     # display it _below_ the input pin
     init_input_widgets = {
@@ -278,8 +284,8 @@ Please find further resources on the GitHub wiki page in this repository.
 
 ## License
 
-* This repository is licensed under the MIT license (LICENSE-MIT or http://opensource.org/licenses/MIT)
-* The underlying library ryvencore is licensed under LGPL-2.1 (LICENSE-LGPL-2.1 or https://www.gnu.org/licenses/lgpl-2.1.html)
+- This repository is licensed under the MIT license (LICENSE-MIT or http://opensource.org/licenses/MIT)
+- The underlying library ryvencore is licensed under LGPL-2.1 (LICENSE-LGPL-2.1 or https://www.gnu.org/licenses/lgpl-2.1.html)
 
 Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you shall be licensed as above, without any additional terms or conditions.
 
