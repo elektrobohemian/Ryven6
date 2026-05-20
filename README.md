@@ -197,7 +197,7 @@ export_nodes([
 ])
 ```
 
-Make sure to include these lines of code in `nodes.py`.
+Make sure to include these lines of code in `nodes.py` or extract the contents of [sample_nodes.zip](./tutorial/sample_nodes.zip) to a directory below `~/.ryven/nodes/`.
 
 That's it! You can import your nodes package in Ryven (`File -> Import Nodes`), place the nodes in the graph, and wire them up. Add a `val` node and connect it to the `Rand` node, to feed its input with data. If you type a number into the widget of the `val` node and hit enter, it will send the number to the `Rand` node, which will send a scaled random number to the `Print` node, which will print it to the standard output.
 
