@@ -9,8 +9,6 @@
 Ryven is an experimental node editor written in Python. It implements a Qt-based visual interface for flow-based visual scripting in Python. It provides a powerful system for developing nodes executing any Python code, and an editor for building graphs using those nodes. Ryven features a bunch of configuration options and a headless mode for running graphs without any GUI. Some relevant GitHub repos:
 
 - [ryvencore](https://github.com/leon-thomm/ryvencore): backend / core library
-- [ryven-blender](https://github.com/leon-thomm/ryven-blender), [ryven-unreal](https://github.com/leon-thomm/ryven-unreal): Ryven plugins for Blender and UE4 (_deprecated_)
-- [PythonOCC nodes for Ryven](https://github.com/Tanneguydv/Pythonocc-nodes-for-Ryven): WIP Ryven nodes for PythonOCC (3D CAD) (_deprecated_)
 - [ironflow](https://github.com/pyiron/ironflow): WIP node interface in jupyter for [pyiron](https://github.com/pyiron) based on ryvencore
 
 The `ryvencore-qt` library adds Qt-based GUI classes for ryvencore (`./ryvencore-qt/`), and the Ryven editor assembles them into a fully-featured cross-platform application (`./ryven-editor/`).
