@@ -1,0 +1,7 @@
+Jinja2
+Pygments
+textdistance
+packaging
+ryvencore
+pyside6
+qtpy
