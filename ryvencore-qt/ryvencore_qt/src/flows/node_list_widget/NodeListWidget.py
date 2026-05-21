@@ -95,7 +95,7 @@ class NodeListWidget(QWidget):
             if func != None:
                 func()
 
-        # pkg widget
+        # packages widget
         self.pkg_widget = QWidget()
         self.pkg_widget.setLayout(QVBoxLayout())
         self.pkg_widget.layout().addWidget(self.search_line_tree)
@@ -336,4 +336,4 @@ class NodeListWidget(QWidget):
         self.escaped.emit()
 
 def text_font():
-    return QFont('Source Code Pro', 9)
+    return QFont('Source Code Pro', 11)

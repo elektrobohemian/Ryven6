@@ -5,8 +5,8 @@ from qtpy.QtGui import QFont, QPainter, QColor, QDrag
 from qtpy.QtCore import Signal, Qt, QMimeData, QByteArray
 
 
-class NodeWidget(QWidget):
 
+class NodeWidget(QWidget):
     chosen = Signal()
     custom_focused_from_inside = Signal()
 
@@ -39,7 +39,8 @@ class NodeWidget(QWidget):
                 super().__init__(text)
 
                 self.setReadOnly(True)
-                self.setFont(QFont('Source Code Pro', 8))
+                # affects the widget chooser display (typically on the left side)
+                self.setFont(text_font())
             def mouseMoveEvent(self, ev):
                 self_.custom_focused_from_inside.emit()
                 ev.ignore()
@@ -124,3 +125,6 @@ QLineEdit {{
         o.initFrom(self)
         p = QPainter(self)
         self.style().drawPrimitive(QStyle.PE_Widget, o, p, self)
+
+def text_font():
+    return QFont('Source Code Pro', 11)

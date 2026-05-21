@@ -1453,7 +1453,7 @@ class FlowTheme_Industrial(FlowTheme):
 
     def paint_PI_label(self, node_gui, painter, option, type_, connected, label_str, node_color, bounding_rect):
         c = QColor('#FFFFFF')
-        self.paint_PI_label_default(painter, label_str, c, QFont("Helvetica", 8, QFont.Normal), bounding_rect)
+        self.paint_PI_label_default(painter, label_str, c, QFont("Helvetica", 10, QFont.Normal), bounding_rect)
 
     def paint_PI(self, node_gui, painter, option, node_color, type_, connected, rect):
 
@@ -1577,7 +1577,7 @@ class FlowTheme_Fusion(FlowTheme):
         pen.setWidthF(1.2)
         painter.setPen(pen)
 
-        self.paint_PI_label_default(painter, label_str, QColor(0, 0, 0), QFont("Helvetica", 8), bounding_rect)
+        self.paint_PI_label_default(painter, label_str, QColor(0, 0, 0), QFont("Helvetica", 10), bounding_rect)
 
 
     def paint_PI(self, node_gui, painter, option, node_color, type_, connected, rect):
