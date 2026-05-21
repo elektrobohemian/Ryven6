@@ -3,6 +3,7 @@ from typing import Set, Dict, List, Optional, Type, Union
 import sys
 import os
 import os.path
+import pathlib
 
 from qtpy.QtGui import QIcon, QKeySequence
 from qtpy.QtWidgets import (
@@ -624,3 +625,11 @@ CONTROLS
 
         file.write(data)
         file.close()
+
+        # save the last used project
+        project_path=pathlib.Path(abs_path_from_ryven_dir('saves'))
+        session_save_path = project_path / "session.txt"
+        #print(f"Saved session to: {session_save_path}")
+        f = session_save_path.open("w")
+        f.write(file_name)
+        f.close()
