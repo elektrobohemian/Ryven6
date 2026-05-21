@@ -17,7 +17,7 @@ class NodeDetailsWidget(QGroupBox):
         self.setLayout(QVBoxLayout())
 
         self.doc_text_edit = QTextEdit()
-        self.doc_text_edit.setFont(QFont('Consolas', 9))
+        self.doc_text_edit.setFont(QFont('Source Code Pro', 9))
         self.doc_text_edit.setReadOnly(True)
 
         self.layout().addWidget(self.doc_text_edit)

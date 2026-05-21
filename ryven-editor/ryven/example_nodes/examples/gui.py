@@ -333,7 +333,7 @@ class ExecNode_MainWidget(NodeMainWidget, QTextEdit):
         NodeMainWidget.__init__(self, params)
         QTextEdit.__init__(self)
 
-        self.setFont(QFont('Consolas', 9))
+        self.setFont(QFont('Source Code Pro', 9))
         self.textChanged.connect(self.text_changed)
         self.setFixedHeight(150)
         self.setFixedWidth(300)
@@ -362,7 +362,7 @@ class EvalNode_MainWidget(NodeMainWidget, QPlainTextEdit):
         NodeMainWidget.__init__(self, params)
         QPlainTextEdit.__init__(self)
 
-        self.setFont(QFont('Consolas', 9))
+        self.setFont(QFont('Source Code Pro', 9))
         self.textChanged.connect(self.text_changed)
         self.setMaximumHeight(50)
         self.setMaximumWidth(200)

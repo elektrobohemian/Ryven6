@@ -185,7 +185,7 @@ class StartupDialog(QDialog):
         # Top info text edit
         info_text_edit = QTextEdit()
         info_text_edit.setHtml(f'''
-            <div style="font-family: Corbel; font-size: large;">
+            <div style="font-size: large;">
                 <img style="float:right;" height=120 src="{abs_path_from_package_dir('resources/pics/Ryven_icon_blurred.png')}"
                 >Ryven is not a stable piece of software, it's experimental, and nothing is
                 guaranteed to work as expected. Make sure to save frequently, and to

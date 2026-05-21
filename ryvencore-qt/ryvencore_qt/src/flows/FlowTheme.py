@@ -251,13 +251,17 @@ class FlowTheme_Toy(FlowTheme):
                 node_item_bounding_rect=node_item_bounding_rect
             )
         else:
+            font = QFontDatabase.systemFont(QFontDatabase.SystemFont.GeneralFont)
+            font.setPointSize(20)
+            font.setWeight(QFont.Weight.Bold)
             self.paint_NI_title_label_default(
                 painter=painter,
                 node_style=node_style,
                 title=node_title,
                 color=QColor(30, 43, 48) if not hovering else node_color.lighter(),
                 pen_w=1.5,
-                font=QFont('K2D', 20, QFont.Bold, True),
+                font=font,
+                #font=QFont('K2D', 20, QFont.Bold, True),
                 node_item_bounding_rect=node_item_bounding_rect
             )
 
@@ -365,13 +369,17 @@ class FlowTheme_DarkTron(FlowTheme):
                 node_item_bounding_rect=node_item_bounding_rect
             )
         else:
+            font = QFontDatabase.systemFont(QFontDatabase.SystemFont.GeneralFont)
+            font.setPointSize(20)
+            font.setWeight(QFont.Weight.Bold)
             self.paint_NI_title_label_default(
                 painter=painter,
                 node_style=node_style,
                 title=node_title,
                 color=node_color,
                 pen_w=2,
-                font=QFont('K2D', 20, QFont.Bold, True),
+                font=font,
+                #font=QFont('K2D', 20, QFont.Bold, True),
                 node_item_bounding_rect=node_item_bounding_rect
             )
 
@@ -555,13 +563,17 @@ class FlowTheme_Ghost(FlowTheme):
                 node_item_bounding_rect=node_item_bounding_rect
             )
         else:
+            font = QFontDatabase.systemFont(QFontDatabase.SystemFont.GeneralFont)
+            font.setPointSize(20)
+            font.setWeight(QFont.Weight.Bold)
             self.paint_NI_title_label_default(
                 painter=painter,
                 node_style=node_style,
                 title=node_title,
                 color=node_color,
                 pen_w=2,
-                font=QFont('K2D', 20, QFont.Bold, True),
+                #font=QFont('K2D', 20, QFont.Bold, True),
+                font=font,
                 node_item_bounding_rect=node_item_bounding_rect
             )
 
@@ -713,7 +725,7 @@ class FlowTheme_Blender(FlowTheme):
                 title=node_title,
                 color=QColor('#FFFFFF'),
                 pen_w=2,
-                font=QFont('Segoe UI', 11),
+                font=QFont('Helvetica', 11),
                 node_item_bounding_rect=node_item_bounding_rect
             )
         else:
@@ -723,7 +735,7 @@ class FlowTheme_Blender(FlowTheme):
                 title=node_title,
                 color=node_color,
                 pen_w=2,
-                font=QFont('Segoe UI', 15, QFont.Bold, True),
+                font=QFont('Helvetica', 15, QFont.Bold, True),
                 node_item_bounding_rect=node_item_bounding_rect
             )
 
@@ -1136,10 +1148,10 @@ class FlowTheme_PureDark(FlowTheme):
         painter.setPen(QPen(self.node_title_color))
 
         if node_style == 'normal':
-            painter.setFont(QFont('Segoe UI', 11))
+            painter.setFont(QFont('Helvetica', 11))
             align = Qt.AlignLeft | Qt.AlignVCenter
         else:
-            painter.setFont(QFont('Segoe UI', 15))
+            painter.setFont(QFont('Helvetica', 15))
             align = Qt.AlignCenter
 
         painter.drawText(node_item_bounding_rect, align, node_title)
@@ -1154,7 +1166,7 @@ class FlowTheme_PureDark(FlowTheme):
             else:
                 c = node_color
 
-        self.paint_PI_label_default(painter, label_str, c, QFont("Segoe UI", 10), bounding_rect)
+        self.paint_PI_label_default(painter, label_str, c, QFont("Helvetica", 10), bounding_rect)
 
     def paint_PI(self, node_gui, painter, option, node_color, type_, connected, rect):
 
@@ -1277,10 +1289,10 @@ class FlowTheme_Colorful(FlowTheme):
         painter.setPen(QPen(self.node_title_color))
 
         if node_style == 'normal':
-            painter.setFont(QFont('Segoe UI', 11))
+            painter.setFont(QFont('Helvetica', 11))
             align = Qt.AlignLeft | Qt.AlignVCenter
         else:
-            painter.setFont(QFont('Segoe UI', 15))
+            painter.setFont(QFont('Helvetica', 15))
             align = Qt.AlignCenter
 
         painter.drawText(node_item_bounding_rect, align, node_title)
@@ -1295,7 +1307,7 @@ class FlowTheme_Colorful(FlowTheme):
             else:
                 c = node_color
 
-        self.paint_PI_label_default(painter, label_str, c, QFont("Segoe UI", 10), bounding_rect)
+        self.paint_PI_label_default(painter, label_str, c, QFont("Helvetica", 10), bounding_rect)
 
     def paint_PI(self, node_gui, painter, option, node_color, type_, connected, rect):
 
@@ -1369,7 +1381,7 @@ class FlowTheme_ColorfulLight(FlowTheme_Colorful):
             else:
                 c = node_color
 
-        self.paint_PI_label_default(painter, label_str, c, QFont("Segoe UI", 10), bounding_rect)
+        self.paint_PI_label_default(painter, label_str, c, QFont("Helvetica", 10), bounding_rect)
 
     def draw_NI_normal(self, node_gui, selected: bool, hovered: bool, painter, c, w, h, bounding_rect: QRectF, title_rect):
 
@@ -1425,7 +1437,7 @@ class FlowTheme_Industrial(FlowTheme):
                 title=node_title,
                 color=QColor(200, 200, 200),
                 pen_w=1,
-                font=QFont('Segoe UI', 11, QFont.Normal if not (hovering or selected) else QFont.Bold),
+                font=QFont('Helvetica', 11, QFont.Normal if not (hovering or selected) else QFont.Bold),
                 node_item_bounding_rect=node_item_bounding_rect
             )
         else:
@@ -1435,13 +1447,13 @@ class FlowTheme_Industrial(FlowTheme):
                 title=node_title,
                 color=node_color,
                 pen_w=2,
-                font=QFont('Segoe UI', 15, QFont.Bold),
+                font=QFont('Helvetica', 15, QFont.Bold),
                 node_item_bounding_rect=node_item_bounding_rect
             )
 
     def paint_PI_label(self, node_gui, painter, option, type_, connected, label_str, node_color, bounding_rect):
         c = QColor('#FFFFFF')
-        self.paint_PI_label_default(painter, label_str, c, QFont("Segoe UI", 8, QFont.Normal), bounding_rect)
+        self.paint_PI_label_default(painter, label_str, c, QFont("Helvetica", 8, QFont.Normal), bounding_rect)
 
     def paint_PI(self, node_gui, painter, option, node_color, type_, connected, rect):
 
@@ -1551,10 +1563,10 @@ class FlowTheme_Fusion(FlowTheme):
         painter.setPen(QPen(self.node_title_color))
 
         if node_style == 'normal':
-            painter.setFont(QFont('Segoe UI', 10))
+            painter.setFont(QFont('Helvetica', 10))
             align = Qt.AlignLeft | Qt.AlignVCenter
         else:
-            painter.setFont(QFont('Segoe UI', 12))
+            painter.setFont(QFont('Helvetica', 12))
             align = Qt.AlignCenter
 
         painter.drawText(node_item_bounding_rect, align, node_title)
@@ -1565,7 +1577,7 @@ class FlowTheme_Fusion(FlowTheme):
         pen.setWidthF(1.2)
         painter.setPen(pen)
 
-        self.paint_PI_label_default(painter, label_str, QColor(0, 0, 0), QFont("Segoe UI", 8), bounding_rect)
+        self.paint_PI_label_default(painter, label_str, QColor(0, 0, 0), QFont("Helvetica", 8), bounding_rect)
 
 
     def paint_PI(self, node_gui, painter, option, node_color, type_, connected, rect):

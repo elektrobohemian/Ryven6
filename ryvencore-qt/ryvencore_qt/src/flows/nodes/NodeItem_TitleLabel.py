@@ -1,3 +1,4 @@
+from PySide6.QtGui import QFontDatabase
 from qtpy.QtCore import QRectF, QPointF, QSizeF, Property
 from qtpy.QtGui import QFont, QFontMetricsF, QColor
 from qtpy.QtWidgets import QGraphicsWidget, QGraphicsLayoutItem, QGraphicsItem
@@ -15,8 +16,12 @@ class TitleLabel(QGraphicsWidget):
         self.node_gui = node_gui
         self.node_item = node_item
 
+        rfont = QFontDatabase.systemFont(QFontDatabase.SystemFont.GeneralFont)
+        rfont.setPointSize(20)
+        rfont.setWeight(QFont.Weight.Bold)
+
         font = QFont('Poppins', 15) if self.node_gui.style == 'normal' else \
-            QFont('K2D', 20, QFont.Bold, True)  # should be quite similar to every specific font chosen by the painter
+            rfont  # should be quite similar to every specific font chosen by the painter
         self.fm = QFontMetricsF(font)
         self.title_str, self.width, self.height = None, None, None
         self.update_shape()

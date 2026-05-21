@@ -15,7 +15,7 @@ class EditSrcCodeInfoDialog(QDialog):
         info_text_edit.setHtml('''
             <h2 style="font-family: Poppins; font-size: xx-large; color: #a9d5ef;">Some info before you delete the
             universe</h2>
-            <div style="font-family: Corbel; font-size: x-large;">
+            <div style="font-size: x-large;">
                 <p>
                     Yes, you can change method implementations of objects.
                     This can be quite useful but since changing an instance's implementation at runtime is kinda sketchy, 

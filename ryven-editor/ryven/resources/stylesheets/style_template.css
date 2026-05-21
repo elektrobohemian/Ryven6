@@ -112,7 +112,7 @@ QComboBox {
 QLineEdit {
   color: {{primaryTextColor}};
   background-color: {{secondaryLightColor}};
-  font-family: Segoe UI;
+  /*font-family: sans-serif;*/
   font-weight: normal;
   border: 1px solid #8b8b8b;
   border-radius: 0px;
@@ -249,7 +249,7 @@ QPushButton {
   height: 34px;
   min-height: 34px;
   max-height: 34px;
-  font-family: Segoe UI;
+  /*font-family: sans-serif;*/
   font-size: 14px;
   font-weight: normal;
   border: 2px solid {{primaryColor}};
@@ -417,7 +417,7 @@ QGroupBox {
   padding-top: 20px;
   line-height: 13px;
   text-transform: uppercase;
-  font-family: Segoe UI;
+  /*font-family: sans-serif;*/
   font-size: 14pt;
   font-weight: bold;
 }
@@ -995,7 +995,7 @@ RYVENCORE-QT DTYPE WIDGETS
   background-color: {{secondaryColor}};
   border: 1px solid {{primaryColor}};
   border-radius: 3px;
-  font-family: Segoe UI;
+  /*font-family: sans-serif;*/
   font-size: 14px;
   font-weight: normal;
   text-transform: none;
@@ -1054,7 +1054,7 @@ SPECIFIC INTERNAL WIDGETS
  */
 
 ConsoleInputLineEdit {
-    font-family: Consolas;
+    font-family: Source Code Pro;
     font-size: 14pt;
 }
 

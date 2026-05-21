@@ -17,7 +17,7 @@ class CodeEditorWidget(QTextEdit):
         self.highlighting = highlight
         self.editing = enabled
 
-        f = QFont('Consolas', 12)
+        f = QFont('Source Code Pro', 12)
         self.setFont(f)
         self.update_tab_stop_width()
 
@@ -105,7 +105,7 @@ class CodeEditorWidget(QTextEdit):
         highlighted = """
 <style>
 * {
-    font-family: Consolas;
+    font-family: Source Code Pro;
 }
 </style>
         """ + highlight(self.toPlainText(), self.lexer, self.formatter)

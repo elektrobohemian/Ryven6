@@ -140,7 +140,7 @@ class CustomOpenCVNode_CodeWidget(QTextEdit):
     def __init__(self):
         QTextEdit.__init__(self)
 
-        self.setFont(QFont('Consolas', 9))
+        self.setFont(QFont('Source Code Pro', 9))
         self.setPlainText('import cv2\nimg = None')
         self.setFixedHeight(100)
         self.setMinimumWidth(300)

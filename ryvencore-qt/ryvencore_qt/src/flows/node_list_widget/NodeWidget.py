@@ -53,7 +53,7 @@ class NodeWidget(QWidget):
         type_layout = QHBoxLayout()
 
         #type_label = QLabel(node.type_)
-        #type_label.setFont(QFont('Segoe UI', 8, italic=True))
+        #type_label.setFont(QFont('Helvetica', 8, italic=True))
         # type_label.setStyleSheet('color: white;')
 
         main_layout.addWidget(name_label, 0, 0)
