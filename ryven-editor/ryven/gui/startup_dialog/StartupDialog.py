@@ -2,6 +2,8 @@ import os
 import pathlib
 from typing import Optional
 
+import pathlib
+
 from qtpy.QtWidgets import (
     QDialog,
     QVBoxLayout,
@@ -35,7 +37,7 @@ from ryven.main.utils import (
 )
 from ryven.main.packages.nodes_package import process_nodes_packages
 from ryven.gui.styling.window_theme import apply_stylesheet
-
+from setuptools._vendor.zipp import Path
 
 LBL_CREATE_PROJECT = '<create new project>'
 LBL_DEFAULT_FLOW_THEME = '<default>'
@@ -229,6 +231,7 @@ class StartupDialog(QDialog):
         load_project_button.setToolTip('Load an existing project')
         load_project_button.clicked.connect(self.on_load_project_button_clicked)
         project_buttons_widget.addButton(load_project_button, QDialogButtonBox.ActionRole)
+
 
         load_example_project_button = QPushButton('Example')
         load_example_project_button.setToolTip('Load a Ryven example')
@@ -460,6 +463,14 @@ class StartupDialog(QDialog):
             QIcon(abs_path_from_package_dir('resources/pics/Ryven_icon.png'))
         )
 
+        # if we find a previous session, prepare it directly
+        session_save_path = pathlib.Path(abs_path_from_ryven_dir('saves') + "/session.txt")
+        if session_save_path.exists():
+            f = session_save_path.open("r")
+            last_proj = f.readline()
+            f.close()
+            self.load_project(pathlib.Path(last_proj))
+
     #
     # Call-back methods
     #
@@ -678,6 +689,11 @@ class StartupDialog(QDialog):
                 node_item.setFlags(item_flags)
                 self.missing_list_widget.addItem(node_item)
 
+            # save the last used project
+            session_save_path=project_path.parent / "session.txt"
+            f=session_save_path.open("w")
+            f.write(str(project_path))
+            f.close()
         self.update_packages_lists()
 
     def auto_discover(self, packages_dir):
