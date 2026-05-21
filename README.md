@@ -1,4 +1,4 @@
-> **2026 Update** This project is used in a research project. Hence, it will receive updates during 2026 (at least). To facilitate maintenance, `PySide2` have been removed. Ryven6 only supports `PySide6`.
+> **2026 Update** This project is used in a research project. Hence, it will receive updates during 2026 (at least). To facilitate maintenance, `PySide2` support has been removed. Ryven6 only supports `PySide6`.
 
 <p align="center">
   <img src="./docs/img/logo.png" alt="drawing" width="70%"/>
@@ -216,7 +216,7 @@ Notice that the standard output is by default the in-editor console, which you c
 
 ### Adding GUI
 
-You can now spice up your nodes with some GUI. Ryven runs on Qt, using either PySide2 or PySide6 (through the [qtpy](https://github.com/spyder-ide/qtpy) library). You can configure the GUI of your nodes in a separate file, and add custom Qt widgets to your nodes. Make sure to always clearly separate the node logic from the GUI components. One of the central features of Ryven is to run projects headless (on ryvencore) without any GUI dependencies. In order for this to work, your `nodes.py` files should never depend on Qt directly. Instead, you can attach custom GUI to your nodes from the GUI files as shown below.
+You can now spice up your nodes with some GUI. Ryven runs on Qt, using ~~either PySide2 or~~ PySide6 (through the [qtpy](https://github.com/spyder-ide/qtpy) library). You can configure the GUI of your nodes in a separate file, and add custom Qt widgets to your nodes. Make sure to always clearly separate the node logic from the GUI components. One of the central features of Ryven is to run projects headless (on ryvencore) without any GUI dependencies. In order for this to work, your `nodes.py` files should never depend on Qt directly. Instead, you can attach custom GUI to your nodes from the GUI files as shown below.
 
 Let's give them some color and add a slider to the `Rand` node, in `gui.py`:
 
