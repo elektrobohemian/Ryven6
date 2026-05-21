@@ -38,13 +38,14 @@ class WindowTheme:
 class WindowTheme_Dark(WindowTheme):
     name = 'dark'
     colors = {
-        'primaryColor': '#448aff',
-        'primaryLightColor': '#83b9ff',
-        'secondaryColor': '#1E242A',
-        'secondaryLightColor': '#272d32',
-        'secondaryDarkColor': '#0C1116',
-        'primaryTextColor': '#E9E9E9',
-        'secondaryTextColor': '#9F9F9F',
+        'primaryColor': '#448aff', # medium blue
+        'primaryLightColor': '#83b9ff', # grayish light blue
+        'secondaryColor': '#1E242A', # very dark gray
+        'secondaryLightColor': '#272d32', # very dark gray
+        'secondaryDarkColor': '#0C1116', # almost black
+        'primaryTextColor': '#E9E9E9', # light gray
+        'primaryActiveTextColor': '#000000',
+        'secondaryTextColor': '#9F9F9F', # dark grey
         'danger': '#dc3545',
         'warning': '#ffc107',
         'success': '#17a2b8',

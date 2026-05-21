@@ -3,7 +3,7 @@
   /* font-family: {{font_family}}; */
   line-height: 13px;
   selection-background-color: {{primaryLightColor}};
-  selection-color: {{primaryTextColor}};
+  selection-color: {{primaryActiveTextColor}};
 }
 
 .danger{
@@ -1008,6 +1008,7 @@ RYVENCORE-QT DTYPE WIDGETS
 *[class="small_button"]:pressed {
   color: {{primaryLightColor}};
   background-color: {{secondaryLightColor}};
+  font-weight: bold;
 }
 
 
