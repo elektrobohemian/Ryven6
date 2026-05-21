@@ -106,6 +106,7 @@ QComboBox {
   border-width: 0 0 2px 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  font-size: 14pt;
 }
 
 QLineEdit {
@@ -417,7 +418,7 @@ QGroupBox {
   line-height: 13px;
   text-transform: uppercase;
   font-family: Segoe UI;
-  font-size: 10pt;
+  font-size: 14pt;
   font-weight: bold;
 }
 
@@ -844,6 +845,7 @@ QListView {
   border-radius: 4px;
   padding: 5px;
   margin: 0px;
+  font-size: 14pt;
 }
 
 QTreeView::item,
@@ -1053,6 +1055,6 @@ SPECIFIC INTERNAL WIDGETS
 
 ConsoleInputLineEdit {
     font-family: Consolas;
-    font-size: 12pt;
+    font-size: 14pt;
 }
 

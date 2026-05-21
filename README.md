@@ -1,10 +1,10 @@
-> This project is not receiving substantial updates, and I'll have limited time for it in the future. With the latest release the project became quite accurately what I want it to be: an easy and flexible editor and framework to explore use cases of flow-based visual scripting in Python. If you have questions or further ideas feel free to open issues or fork the project and try it yourself.
-
-> **2026 Update** This project has been worked and is used in a research project. Hence, it will receive updates during 2026 (at least).
+> **2026 Update** This project is used in a research project. Hence, it will receive updates during 2026 (at least). To facilitate maintenance, `PySide2` have been removed. Ryven6 only supports `PySide6`.
 
 <p align="center">
   <img src="./docs/img/logo.png" alt="drawing" width="70%"/>
 </p>
+
+> _Information from the original project:_ This project is not receiving substantial updates, and I'll have limited time for it in the future. With the latest release the project became quite accurately what I want it to be: an easy and flexible editor and framework to explore use cases of flow-based visual scripting in Python. If you have questions or further ideas feel free to open issues or fork the project and try it yourself.
 
 Ryven is an experimental node editor written in Python. It implements a Qt-based visual interface for flow-based visual scripting in Python. It provides a powerful system for developing nodes executing any Python code, and an editor for building graphs using those nodes. Ryven features a bunch of configuration options and a headless mode for running graphs without any GUI. Some relevant GitHub repos:
 
@@ -15,15 +15,28 @@ The `ryvencore-qt` library adds Qt-based GUI classes for ryvencore (`./ryvencore
 
 ## Installation and Configuration
 
-Once you have Python and pip installed, Ryven is available on PyPI via
+1. Clone the repository.
+2. Open the created folder, e.g.: `cd Ryven6`
+3. Create a Python environment, e.g.: `python3 -m venv venv`
+4. Activate the environment, e.g.: `source venv/bin/activate.fish` (or skip `.fish` if you are still using `bash`)
+5. Install the required packages, e.g.: `pip install -r requirements.txt`
+6. Install `ryvencore-qt` by
+   - changing to the packages directory, e.g.: `cd ryvencore-qt/` and
+   - running the installation script: `python setup.py install`
+7. Install `ryven-editor` by
+   - changing to the packages directory, e.g.: `cd ryven-editor/` and
+   - running the installation script: `python setup.py install`
+8. You can now start Ryven from within this Python environment by calling `ryven`.
 
-```
-pip install ryven
-```
+**ATTENTION:** Ryven will only be available within your Python environment, example nodes will also be placed below this environment, for instance below `Ryven6/venv/lib/python3.14/site-packages/ryven/` if you following the instructions from above.
 
-There is also a [conda-forge package](https://anaconda.org/conda-forge/ryven) (`conda install -c conda-forge ryven`).
+However, all configuration and project saves will be placed in `~/.ryven/` (see below).
 
-Ryven can be launched from the command line by typing `ryven`. If you installed Ryven into a Python virtual environment (or a conda environment), the environment needs to be activated first.
+~~Once you have Python and pip installed, Ryven is available on PyPI via `pip install ryven`~~
+
+~~There is also a [conda-forge package](https://anaconda.org/conda-forge/ryven) (`conda install -c conda-forge ryven`).~~
+
+Ryven can be launched from the command line by typing `ryven`. If you installed Ryven into a Python virtual environment (~~or a conda environment~~ other package manager have not been tested), the environment needs to be activated first. Please note that the first start might take a while.
 
 Ryven itself only comes with some small example nodes. You should use Ryven either to develop nodes, or use a third-party nodes package for your use case if there is one. The example nodes are - indeed - just examples, and not stable in any way, so you should not depend on them.
 
