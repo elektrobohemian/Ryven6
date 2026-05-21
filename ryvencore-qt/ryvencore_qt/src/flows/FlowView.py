@@ -1,6 +1,9 @@
 # prevent circular imports
 from __future__ import annotations
 from typing import TYPE_CHECKING
+
+from PySide6.QtCore import QSize
+
 if TYPE_CHECKING:
     from ..SessionGUI import SessionGUI
 
@@ -788,11 +791,11 @@ class FlowView(GUIBase, QGraphicsView):
 
         self.hide_proxies()
         img = QImage(
-            size=QSizeF(
+            QSize(
                 self.viewport().rect().width(),
                 self.viewport().height(),
             ),
-            format=QImage.Format_ARGB32,
+            QImage.Format_ARGB32,
         )
         img.fill(Qt.transparent)
 
@@ -809,11 +812,11 @@ class FlowView(GUIBase, QGraphicsView):
 
         self.hide_proxies()
         img = QImage(
-            size=QSizeF(
+            QSize(
                 self.sceneRect().width() / self._total_scale_div,
                 self.sceneRect().height() / self._total_scale_div,
             ),
-            format=QImage.Format_RGB32,
+            QImage.Format_RGB32,
         )
         img.fill(Qt.transparent)
 
