@@ -130,7 +130,7 @@ def run(*args_,
 
     # Register fonts
     from qtpy.QtGui import QFontDatabase
-    db = QFontDatabase()
+    db = QFontDatabase
     db.addApplicationFont(
         utils.abs_path_from_package_dir('resources/fonts/poppins/Poppins-Medium.ttf'))
     db.addApplicationFont(
