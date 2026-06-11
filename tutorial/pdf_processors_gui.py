@@ -2,9 +2,6 @@ from qtpy.QtWidgets import  QTextEdit, QVBoxLayout, QWidget, QPushButton, QLabel
 
 
 from ryven.gui_env import *
-from ryvencore import Node
-
-from . import nodes
 from . import pdf_processors as pdf_processors
 
 ## pdf processors

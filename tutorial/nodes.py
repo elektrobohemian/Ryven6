@@ -1,5 +1,4 @@
 from ryven.node_env import *
-from . import pdf_processors
 
 # each class is a node type, and each instance of the class is a node in the graph
 
