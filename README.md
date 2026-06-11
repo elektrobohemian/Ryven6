@@ -141,6 +141,8 @@ Navigate to `~/.ryven/nodes/` and create a sub-directory of the following struct
 
 with the following contents:
 
+`__init__.py` is left empty in most cases.
+
 `nodes.py`:
 
 ```python
@@ -275,6 +277,8 @@ and this is it! Ryven will now register `RandNodeGui` as "GUI class" of the `Ran
 
 The value provided by an input widget (e.g. `self.update_node_input(val)` above) will be returned in the node, when calling `input()` (e.g. `self.input(0)` in the `RandNode`), but only when the corresponding input is _not connected_. Otherwise, the value of the connected output will be returned.
 
+### A Fully Working Example
+A more detailed example is also [available](./tutorial/node_creation_tutorial.md) showing you how to create a node with a custom GUI that also saves it state when the Ryven editor is closed.
 </details>
 
 Please find further resources on the GitHub wiki page in this repository.
