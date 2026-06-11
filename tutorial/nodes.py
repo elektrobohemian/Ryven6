@@ -1,5 +1,5 @@
 from ryven.node_env import *
-from random import random
+from . import pdf_processors
 
 # each class is a node type, and each instance of the class is a node in the graph
 
@@ -64,10 +64,11 @@ class PathSelector_Node(Node):
 
 # you have to make sure to export your nodes at the end of the file, otherwise they won't be available in the node editor
 export_nodes([CustomNode, PrintNode, PickyPrintNode, PathSelector_Node])
-# export_nodes([CustomNode, PrintNode, PythonExecNode])
+
 
 
 @on_gui_load
 def load_gui():
 # import gui sources here only
     from . import gui
+    from . import pdf_processors_gui

@@ -5,6 +5,7 @@ from ryven.gui_env import *
 from ryvencore import Node
 
 from . import nodes
+from . import pdf_processors as pdf_processors
 
 
 class CustomWidget(NodeInputWidget, QWidget):
@@ -225,3 +226,4 @@ class PathSelectorNodeGui(NodeGUI):
     main_widget_class = PathSelector_MainWidget
     main_widget_pos = 'between ports'
     color = '#99dd55'
+
