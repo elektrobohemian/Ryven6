@@ -140,7 +140,6 @@ class PickyPrintWidget(NodeInputWidget, QWidget):
         """ This method is called every time the input port is connected or updated."""
         if val is not None and type(val.payload) is dict:
             if "type" in val.payload:
-                print("PICKY")
                 if val.payload["type"] == "path":
                     self.label_inp.setText(str(val.payload["value"]))
                 else:
@@ -172,6 +171,7 @@ class PickyPrintNodeGUI(NodeGUI):
     init_input_widgets = {0: {"name": "pprint_widget", "pos": "below"}}
 
 class PathSelector_MainWidget(NodeMainWidget, QWidget):
+    state_dict=dict()
 
     def __init__(self, params):
         NodeMainWidget.__init__(self, params)
@@ -193,6 +193,7 @@ class PathSelector_MainWidget(NodeMainWidget, QWidget):
         self.setLayout(layout)
 
     def btn_clicked(self):
+        print(f"Path Selector: {self.state_dict}")
         directory = QFileDialog.getExistingDirectory(
             self, "Select Directory", ""
         )
@@ -202,8 +203,8 @@ class PathSelector_MainWidget(NodeMainWidget, QWidget):
             if len(directory) > 40:
                 directory_text = "..."+directory[-40:]
             self.label_path.setText(directory_text)
-            rdict={"type":"path","value": directory}
-            self.node.set_output_val(0, Data(rdict))
+            self.state_dict={"type":"path","value": directory}
+            self.node.set_output_val(0, Data(self.state_dict))
             #self.node.set_output_val(0,Data(directory))
         self.update_node()
         pass
@@ -213,10 +214,11 @@ class PathSelector_MainWidget(NodeMainWidget, QWidget):
 
     # states are used to save and load the node's state when saving/loading a project
     def get_state(self) -> dict:
-        return {"value": self.label_path.text()}
+        return {"value": self.label_path.text(),"state_dict":self.state_dict}
 
     def set_state(self, state: dict):
         self.label_path.setText(str(state["value"]))
+        self.state_dict=state["state_dict"]
 
 @node_gui(nodes.PathSelector_Node)
 class PathSelectorNodeGui(NodeGUI):

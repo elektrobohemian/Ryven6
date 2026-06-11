@@ -43,7 +43,6 @@ class PickyPrintNode(Node):
 
     def update_event(self, inp=-1):
         if self.input(0) is not None:
-            print("PICKY NODE")
             if "type" in self.input(0).payload:
                 print(f"{self.title}: Typed input: {self.input(0).payload["type"]}")
                 if self.input(0).payload["type"]=="path":
