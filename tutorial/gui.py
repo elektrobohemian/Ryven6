@@ -119,6 +119,57 @@ class PrintNodeGUI(NodeGUI):
     # display it _below_ the input pin
     init_input_widgets = {0: {"name": "print_widget", "pos": "below"}}
 
+class PickyPrintWidget(NodeInputWidget, QWidget):
+    def __init__(self, params):
+        """Layouts the custom widget. Please note that all widgets will be disabled if the input port is connected."""
+
+        NodeInputWidget.__init__(self, params)
+        QWidget.__init__(self)
+
+        self.label_inp = QLabel()
+        self.label_inp.setMinimumSize(300, 40)
+        self.label_inp.setWordWrap(True)
+
+
+        layout = QVBoxLayout()
+        layout.addWidget(self.label_inp)
+
+        self.setLayout(layout)
+
+    def val_update_event(self, val: Data):
+        """ This method is called every time the input port is connected or updated."""
+        if val is not None and type(val.payload) is dict:
+            if "type" in val.payload:
+                print("PICKY")
+                if val.payload["type"] == "path":
+                    self.label_inp.setText(str(val.payload["value"]))
+                else:
+                    self.label_inp.setText("⚠️ Type not excepted!")
+            else:
+                self.label_inp.setText("⚠️ Type not excepted!")
+        else:
+            self.label_inp.setText("⚠️ Type not excepted!")
+
+    def get_val(self):
+        return self.label_inp.text()
+
+    # states are used to save and load the node's state when saving/loading a project
+    def get_state(self) -> dict:
+        return {"value": self.label_inp.text()}
+
+    def set_state(self, state: dict):
+        self.label_inp.setText(str(state["value"]))
+
+@node_gui(nodes.PickyPrintNode)
+class PickyPrintNodeGUI(NodeGUI):
+    color = "#fcba03"
+
+    # register the input widget class
+    input_widget_classes = {"pprint_widget": PickyPrintWidget}
+
+    # attach the custom widget to the first node input
+    # display it _below_ the input pin
+    init_input_widgets = {0: {"name": "pprint_widget", "pos": "below"}}
 
 class PathSelector_MainWidget(NodeMainWidget, QWidget):
 
@@ -151,7 +202,9 @@ class PathSelector_MainWidget(NodeMainWidget, QWidget):
             if len(directory) > 40:
                 directory_text = "..."+directory[-40:]
             self.label_path.setText(directory_text)
-            self.node.set_output_val(0,Data(directory))
+            rdict={"type":"path","value": directory}
+            self.node.set_output_val(0, Data(rdict))
+            #self.node.set_output_val(0,Data(directory))
         self.update_node()
         pass
 
@@ -166,7 +219,7 @@ class PathSelector_MainWidget(NodeMainWidget, QWidget):
         self.label_path.setText(str(state["value"]))
 
 @node_gui(nodes.PathSelector_Node)
-class Button2NodeGui(NodeGUI):
+class PathSelectorNodeGui(NodeGUI):
     main_widget_class = PathSelector_MainWidget
     main_widget_pos = 'between ports'
     color = '#99dd55'
