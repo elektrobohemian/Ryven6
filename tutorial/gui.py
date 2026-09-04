@@ -139,6 +139,7 @@ class PickyPrintWidget(NodeInputWidget, QWidget):
 
     def val_update_event(self, val: Data):
         """ This method is called every time the input port is connected or updated."""
+        print("UPDATE: "+str(val))
         if val is not None and type(val.payload) is dict:
             if "type" in val.payload:
                 if val.payload["type"] == "path":
@@ -149,6 +150,10 @@ class PickyPrintWidget(NodeInputWidget, QWidget):
                 self.label_inp.setText("⚠️ Type not excepted!")
         else:
             self.label_inp.setText("⚠️ Type not excepted!")
+            print("X")
+
+        if False==True:
+            self.label_inp.setText("⚠️ No input.")
 
     def get_val(self):
         return self.label_inp.text()

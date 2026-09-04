@@ -49,6 +49,13 @@ class PickyPrintNode(Node):
                     print(f"\tID: {self.input(0).identifier}")
         else:
             print(f"{self.title}: Nothing to print")
+            self.input(0).payload=None
+            self.update()
+
+    def input_disconnected(self, connected_port, input_index: int):
+        # connected_port: the output port that was disconnected
+        # input_index:    which of your inputs lost the connection
+        print(f"Input {input_index} disconnected from {connected_port}")
 
 class PathSelector_Node(Node):
     title = 'Path Selector'
